@@ -29,6 +29,7 @@ public class Week04CodingProject {
 		//
 		// ANSWER:
 		// Here I create an int array, initialized with the values provided:
+		// It contains 8 values:
 		int[] ages = {3, 9, 23, 64, 2, 8, 28, 93};
 		
 		
@@ -96,7 +97,7 @@ public class Week04CodingProject {
 		// I added Two print statements, one to make a space, one to reference the question:
 		System.out.println();
 		System.out.println("Question 1.b.iii. Output: ");
-		// I copied both lines to show the similarities side-by-side:
+		// I copied both lines from above to show the similarities side-by-side:
 		System.out.println(ages[ages.length - 1] - ages[0]);
 		System.out.println(ages2[ages2.length - 1] - ages2[0]);
 		
@@ -121,7 +122,7 @@ public class Week04CodingProject {
 		System.out.println();
 		System.out.println("Question 1.c. Output: ");
 		// Here is the print statement for 1. c. to show the average:
-		System.out.println(sumAge / ages.length);
+		System.out.println(ageAvg);
 		
 		
 		// Question 2: 
@@ -135,40 +136,43 @@ public class Week04CodingProject {
 		
 		
 		// Question 2. a.
-		// Use a loop to iterate through the array and calculate the average number of letters per name. 
+		// Use a loop to iterate through the array and calculate the 
+		// average number of letters per name. 
 		// Print the result to the console.
 		//
 		// ANSWER:
-		// I initialized a String, an int, and two doubles to help the loop:
-		String getName = "";
-		int nameLength = 0;
-		double nameSum = 0;
-		double nameAvg = 0;
-		double sum = 0;
+		// I initialized a double data type variable to capture the sum:
+		double sum = 0; 
 		// Below is the loop, a traditional for loop:
 		// It has the index start at zero and then be less than the array names length.
 		// The iteration of the loop is an increment of the index i.
-		// The String 'getName' collects a single String at index i of the array "names".
-		// The nameLength is an int that captures the length of the single String element.
-		// The nameSum increments with each String element's length (from names array).
-		// The nameAvg takes the nameSum, equal to all the lengths (nameLength) added up, 
-		// and then is divided by the "names.length" value, 
-		// which is the number of elements in the array.
+		// I retrieve the length of each element in the loop by using the index i
+		// In the names[i].length(); - which also gets the length of each names element. 
+		// Each element is incremented by the sum, 
+		// equivalent to sum = sum + names[i].length().
+		// Alternatively, I could have initialized a variable to capture each length,
+		// and then incremented that variable in the next line to the sum. 
+		// This saves lines of code:
 		for (int i = 0; i < names.length; i++) {
-//			getName = names[i];				// edited code to make it shorter. 
 			sum += names[i].length();
-//			nameLength = getName.length();
-//			nameSum += nameLength;
-//			nameAvg = nameSum / names.length;
 		}
 		// I added Two print statements, one to make a space, one to reference the question:
 		System.out.println();
 		System.out.println("Question 2.a. Output: ");
-		// I set a String Variable to capture the formatted output of the Int Variable.
-		// Using a built in String Method: String.format(), to Round the nameAvg output. 
+		// I set a String variable to capture the formatted output of the double variable.
+		// Using a built in String Method: String.format(), to Round the output. 
 		// I did this to make it easier to read.
+		// namesAvgRounded also includes the arithmetic of dividing the sum variable,
+		// which was incrementally increased in the loop, divided by the number of elements,
+		// referenced by names.length.
+		// It will be a String but it will show the calculations accurately.
+		// It will show the average number of letters per name in the array "names":
 		String nameAvgRounded = String.format("%.2f", sum/names.length);
-		// nameAvgRounded is a String output of the double nameAvg, for readability.
+		// The names lengths are 3, 5, 3, 5, 4, and 3, which sums to 23.
+		// The number of names is 6, so 23/6 would equal 3.833333333 (repeating 3's).
+		// Rounding to one decimal place would have been 3.8. Two places is 3.83.
+		// That's 3.83 letters per name on average in the array names.
+		// nameAvgRounded is printed out below here, now that it is a String:
 		System.out.println(nameAvgRounded);
 		
 		
@@ -181,6 +185,11 @@ public class Week04CodingProject {
 		String namesConcatenated = "";
 		// Here is the loop, an enhanced for loop to grab each element out of the names array
 		// the String namesConcatenated increments with each String element plus a space.
+		// Each time the loop iterates, it takes the name, concatenates a space, and then
+		// concatenates that to the namesConcatenated String variable.
+		// I could have used a traditional for loop to increment each iteration, 
+		// and on the final iteration set an if statement to not print the space after
+		// the final name, but that was not specified in this particular question:
 		for (String name : names) {
 			namesConcatenated += name + " ";
 		}
@@ -188,6 +197,7 @@ public class Week04CodingProject {
 		System.out.println();
 		System.out.println("Question 2.b. Output: ");
 		// Here is the output of the namesConcatenated String after the for loop is completed:
+		// This shows all the names plus a space after each name in one long String:
 		System.out.println(namesConcatenated);
 		
 		
@@ -208,11 +218,13 @@ public class Week04CodingProject {
 		// How do you access the first element of any array?
 		//
 		// ANSWER: For an array called arrayName, you take the index of 0.
+		// So, it would always be arrayName[0];
 		// I added Two print statements, one to make a space, one to reference the question:
 		System.out.println();
 		System.out.println("Question 4. Output: ");
 		// So, the first element in arrayName would be arrayName[0].
-		// In the array names, it would be as follows:
+		// Since our array is called "names", it would be names[0];
+		// Here is that code using a Print statement:
 		System.out.println(names[0]);
 		
 		
@@ -222,8 +234,14 @@ public class Week04CodingProject {
 		// and add the length of each name to the nameLengths array.
 		//
 		// ANSWER:
-		// I created the int Array nameLengths before the loop:
+		// I initialized the int Array nameLengths before the loop:
 		int[] nameLengths = new int[names.length];
+		// Using a traditional for loop, I start the index at 0 and then 
+		// continue until the conditional statement is less than the names.length,
+		// and increment by one each loop.
+		// The array created above, namesLengths, takes each element of names
+		// and takes the length(), and adds it to the same index of the array.
+		// the use of the index is key here because it gives a one-to-one relationship.
 		// Here is the loop to iterate over the names array:
 		for (int i = 0; i < names.length; i++) {
 			nameLengths[i] = names[i].length();
@@ -237,9 +255,10 @@ public class Week04CodingProject {
 		// Print the result to the console.
 		//
 		// ANSWER:
-		// the int lengthSum captures all the length increments
+		// the int lengthSum that will incrementally capture each length through iteration.
 		int lengthSum = 0;
-		// Here is a for each loop, the enhanced for loop, to take one length out of nameLengths at a time,
+		// Here is a for each loop, the enhanced for loop, 
+		// to take one length out of nameLengths at a time,
 		// and add it to an incremental total of the int lengthSum:
 		for (int length : nameLengths) {
 			lengthSum += length;
@@ -247,7 +266,9 @@ public class Week04CodingProject {
 		// I added Two print statements, one to make a space, one to reference the question:
 		System.out.println();
 		System.out.println("Question 6. Output: ");
-		// The result of lengthSum after the loop is finished is printed:
+		// The result of lengthSum after the loop is finished is printed below.
+		// This shows all the lengths added together into one sum, lengthSum.
+		// The names lengths are 3, 5, 3, 5, 4, and 3, which sums to 23.
 		System.out.println(lengthSum);
 		
 		
@@ -353,14 +374,14 @@ public class Week04CodingProject {
 		// I added Two print statements, one to make a space, one to reference the question:
 		System.out.println();
 		System.out.println("Question 12. Output: ");
-		// Setting up two variables for the first test case:
+		// Setting up two variables for the first test case, which should return true:
 		boolean isHotOutside = true;
 		double moneyInPocket = 10.52;
 		System.out.println(willBuyDrink(isHotOutside, moneyInPocket)); // should be true
 		// Invoking the method again to try out other cases:
 		System.out.println(willBuyDrink(false, 11.50)); // should be false
-		System.out.println(willBuyDrink(true, 10.50)); // should be false
-		System.out.println(willBuyDrink(false, 5.00)); // should be false
+		System.out.println(willBuyDrink(true, 10.50));  // should be false
+		System.out.println(willBuyDrink(false, 5.00));  // should be false
 		
 		
 		// Question 13:
@@ -373,10 +394,14 @@ public class Week04CodingProject {
 		// Write a method that takes in three booleans, and returns a String.
 		// In the method, A fourth boolean variable is set that controls the String return.
 		// If two or more (of the three) are true, you do Not need to go to the Store.
-		// If you have two items out of bread, cheese, and coffee, print "Do not go to the store".
-		// Otherwise, if you do not have two out of the three items, print "You need to go to the store".
+		// If you have two items out of bread, cheese, and coffee, 
+		// print "Do not go to the store".
+		// Otherwise, if you do NOT have two out of the three items, 
+		// in other words "Having item == false", or "!item", where ! means Not, or false,
+		// print "You need to go to the store".
 		// If only one or none of the three boolean inputs are true, 
-		// return false, because you need to go to the store.
+		// (That also means two or more are false),
+		// return false, because You need to go to the store.
 		// Return a String that says one or the other outcome.
 		// 
 		// ANSWER OF MY OWN: See the Method body below "End of Main"
@@ -385,6 +410,7 @@ public class Week04CodingProject {
 		boolean hasBread = false;
 		boolean hasCheese = false;
 		boolean hasCoffee = true;
+		// This should return that "You need to go to the store" because 2/3 are false.
 		// I added Two print statements, one to make a space, one to reference the question:
 		System.out.println("");
 		System.out.println("Question 13. Output: ");
@@ -415,12 +441,17 @@ public class Week04CodingProject {
 	public static String questionSeven(String word, int n) {
 		// Initializing a String to collect the words to concatenate, and to be returned.
 		String wordConcat = "";
-		// Traditional for loop initialized at 0, a condition to stop less than the n provided,
-		// iterates by 1.
+		// Traditional for loop initialized at 0, 
+		// a condition to stop less than the n provided,
+		// and iterates by 1.
+		// The loop iterates the number of times provided by the user.
+		// wordConcat collects and appends each string incrementally,
+		// growing as long as the user specified in the number n:
 		for (int i = 0; i < n; i++) {
 			wordConcat += word;
 		}
-		// The method returns a String:
+		// The method returns a String, in this case wordConcat.
+		// This is printed above in the Print statement that invokes the method.
 		return wordConcat;
 	}
 	
@@ -428,11 +459,14 @@ public class Week04CodingProject {
 	// Question 8 Method:
 	// Method Signature matches the question it is answering:
 	public static String questionEight(String firstName, String lastName) {
-		// Initializing a String that also performs the concatenation:
+		// I can save lines of code by 
+		// putting the operation of concatenating the Strings
+		// into the return statement.
+		// This returns one String, firstName, space, lastName.
+		// This is printed above in the Print statement that invokes the method.
 		return firstName + " " + lastName;
-		// Returns the string, once it's been concatenated, concatenation within the return.
-		
 	}
+	
 	
 	// Question 9 Method:
 	// Method Signature matches the question it is answering:
@@ -444,12 +478,17 @@ public class Week04CodingProject {
 			// Incrementing the sum by each element, in each iteration of the loop:
 			arraySum += num;
 		}
+		// I could have written out a
 		// Conditional If statement, with the condition that 
 		// IF the arraySum is greater than 100,
-		// return true, else false:
+		// return true, else false.
+		// However, This has been embedded in the return statement to save lines of code.
+		// IF arraySum > 100 that evaluates to true, if not then false.
+		// This is printed above in the Print statement that invokes the method.
 		return (arraySum > 100); 
 		
 	}
+	
 	
 	// Question 10 Method:
 	// Method Signature matches the question it is answering:
@@ -461,28 +500,44 @@ public class Week04CodingProject {
 		}
 		// Initializing a double and performing the average calculation:
 		double arrayAvg = arraySum / doubleArray.length;
-		// Returning the double arrayAvg:
-		return arrayAvg;
-				
+		// Returning the double arrayAvg.
+		// This is printed above in the Print statement that invokes the method.
+		return arrayAvg;	
 	}
+	
 	
 	// Question 11 Method:
 	// Method Signature matches the question it is answering:
 	public static boolean questionEleven(double[] array1, double[] array2) {
-		// creating two double variables to initialize them for the subsequent loops.
-//		double array1Sum = 0.0;
-//		double array2Sum = 0.0;
-//		// Here this enhanced for loop sums up the individual numbers, num, for the first array:
-//		for (double num : array1) {
-//			array1Sum += num;
-//		}
-//		// Here this enhanced for loop sums up the individual numbers, num, for the second array:
-//		for (double num : array2) {
-//			array2Sum += num;
-//		}
+		// Here I could have written several lines of code.
+		// However, I also have the ability to use another method already created
+		// Below are the lines of code I could have written, followed by
+		// an explanation of what is going on:
+		
+		// 		// creating two double variables to initialize them for the subsequent loops.
+		//		double array1Sum = 0.0;
+		//		double array2Sum = 0.0;
+		
+		//		// Here this enhanced for loop sums up the individual numbers, num, for the first array:
+		//		for (double num : array1) {
+		//			array1Sum += num;
+		//		}
+		
+		//		// Here this enhanced for loop sums up the individual numbers, num, for the second array:
+		//		for (double num : array2) {
+		//			array2Sum += num;
+		//		}
+		
 		// This if statement controls what will be returned. The method returns a boolean:
-		//return (array1Sum > array2Sum); 
-		return (questionTen(array1) > questionTen(array2)); } // Reusing the questionTen method to return average.
+		// return (array1Sum > array2Sum); 
+		// [End of alternative explanation].
+		
+		// Reusing the questionTen method to return average,
+		// Using the questionTen method paramaters to pass through the arguments
+		// of array1 and array 2.
+		// This is printed above in the Print statement that invokes the method.
+		return (questionTen(array1) > questionTen(array2)); 
+	} 
 	
 	
 	// Question 12 Method:
@@ -490,7 +545,12 @@ public class Week04CodingProject {
 	// In this problem, the method signature is provided:
 	public static boolean willBuyDrink(boolean isHotOutside, double moneyInPocket) {
 		// Creating a conditional IF statement that combines required logic,
-		// Depending on the two inputs, the method will return a boolean true or false:
+		// Depending on the two inputs, the method will return a boolean true or false.
+		// However, the default boolean is true, so all I have to do is 
+		// write the variable name of the boolean,
+		// and in the case of moneyInPocket, add the 'greater than 10.50'.
+		// Shortening the code, I can put the statements within the return statement.
+		// This is printed above in the Print statement that invokes the method.
 		return ((isHotOutside) && (moneyInPocket > 10.50)); 
 	}		
 				
@@ -506,13 +566,13 @@ public class Week04CodingProject {
 			if ((!cheese) || (!coffee)) { // the ! means 'not', and if "not bread" means "bread == false"
 				goToStore = true;
 			// If bread is false but the other two are true, also do not need to go to the store.
-			} else if ((cheese == true) && (coffee == true)) {
+			} else if ((cheese) && (coffee)) {
 				goToStore = false;
 			}
 		// Once it is determined that one element is True, then only one other condition would 
 		// make the overall result false, and that is if the other two are false & false.
-		} else if (bread == true) {
-			if ((cheese == false) && (coffee == false)) {
+		} else if (bread) {
+			if ((!cheese) && (!coffee)) {
 				goToStore = true;
 			} else {
 				goToStore = false;
@@ -522,7 +582,7 @@ public class Week04CodingProject {
 		String goToStoreYes = "You need to go to the store.";
 		String goToStoreNo = "Do not go to the store.";
 		// Final check to take the results of the logic above and decide the print statement:
-		if (goToStore == true) {
+		if (goToStore) {
 			return goToStoreYes;
 		} else {
 			return goToStoreNo;
