@@ -357,10 +357,14 @@ public class Week04CodingProject {
 		System.out.println("Question 11. Output: ");
 		// Invoking the method here:
 		System.out.println(questionEleven(q11Array1, q11Array2));
-		// Invoking in reverse argument order to test that it should be 'false':
+		// The average of q11Array1 is 3,996 / 8 = 499.5
+		// The average of q11Array2 is 39.6 / 8 = 4.95
+		// 499.5 > 4.95 evaluates to true.
 		// The instructions clearly state the averages of the elements of
-		// the first array being larger than the second array yields true:
+		// the first array being larger than the second array yields true.
+		// Invoking in reverse argument order to test that it should be 'false':
 		System.out.println(questionEleven(q11Array2, q11Array1));
+		// 4.95 > 499.95 evaluates to false.
 		
 		
 		// Question 12:
