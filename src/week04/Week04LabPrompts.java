@@ -35,11 +35,12 @@ public class Week04LabPrompts {
 				//		a. Create a list of Strings 
 				//		b. Add 5 Strings to it, each with a different length
 				List<String> listNoTwo = new ArrayList<String>();
+				listNoTwo.add("Dos Dos");			
 				listNoTwo.add("Uno Uno Uno");
 				listNoTwo.add("Tres Tres Tres");
 				listNoTwo.add("Cuatro Cuatro Cuatro Cuatro");
-				listNoTwo.add("Dos Dos");
 				listNoTwo.add("Cinco Cinco Cinco Cinco Cinco");
+
 				
 				System.out.println();
 				System.out.println("List Number Two String Element Lengths:");
@@ -62,8 +63,8 @@ public class Week04LabPrompts {
 				System.out.println(listNoThree);
 				
 				List<String> listNoThreeCopy = new ArrayList<String>();
-				listNoThreeCopy.add("Bench Testing");
 				listNoThreeCopy.add("Reading");
+				listNoThreeCopy.add("Bench Testing");
 				listNoThreeCopy.add("Writing!");
 				listNoThreeCopy.add("Reviewing");
 				listNoThreeCopy.add("Marsupials of Australia");
@@ -266,32 +267,15 @@ public class Week04LabPrompts {
 			// Write and test a method that takes a list of strings 
 			// and returns the shortest string:
 			public static String methodThree(List<String> E) {
+				String shortest = E.get(0);
 				String nextCapture = "";
-				String previousOne = "";
-				String shortest = "";
-
-				String firstOne = E.get(0);
+				
 				for (int i = 0; i < E.size(); i++) {
 					nextCapture = E.get(i);
-						if (firstOne.length() <= nextCapture.length()) {
-							shortest = firstOne;
-							previousOne = nextCapture;
-						} else {
-							shortest = nextCapture;
-							previousOne = firstOne;
-						}	
-							
-						if (shortest.length() <= nextCapture.length()) {
-							previousOne = nextCapture;
-						} else {
-							shortest = nextCapture;
-						}
-						
-						if (nextCapture.length() <= previousOne.length()) {
-							shortest = nextCapture;
-						} else {
-							shortest = previousOne;
-						}
+					if (nextCapture.length() <= shortest.length()) {
+						shortest = nextCapture;
+					}
+					
 					
 				}
 				
