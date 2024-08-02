@@ -274,14 +274,9 @@ public class Week04LabPrompts {
 					nextCapture = E.get(i);
 					if (nextCapture.length() <= shortest.length()) {
 						shortest = nextCapture;
-					}
-					
-					
+					}				
 				}
-				
-					return shortest;
-
-				
+				return shortest;
 			}   // End of method 3.
 			
 			
